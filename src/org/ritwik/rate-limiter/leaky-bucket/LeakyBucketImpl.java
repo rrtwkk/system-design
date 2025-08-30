@@ -27,9 +27,19 @@ public class LeakyBucketImpl {
             return false;
         }
 
-        public void transmitRequest(int id) {
-            // this function ca be called at a fixed rate to simulate the
+        public void transmitRequest() {
+            // this function can be called at a fixed rate to simulate the
             // leaking principle.
+            Integer requestId = queue.poll();
+            if (requestId != null) {
+                System.out.println("Processing request: " + requestId);
+                // Simulate processing time
+                try {
+                    Thread.sleep(100); // 100ms processing time
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+            }
         }
     }
 
