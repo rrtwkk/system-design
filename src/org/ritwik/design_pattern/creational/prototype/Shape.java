@@ -2,8 +2,8 @@ package org.ritwik.design_pattern.creational.prototype;
 
 // Abstract prototype class
 public abstract class Shape implements Prototype {
-    protected String color;
-    protected int x, y;
+    public String color;
+    public int x, y;
 
     public Shape() {
     }
@@ -17,6 +17,10 @@ public abstract class Shape implements Prototype {
     }
 
     public abstract void draw();
+
+    // Implement the Prototype interface
+    @Override
+    public abstract Prototype clone();
 
     // Getters and setters
     public String getColor() {
